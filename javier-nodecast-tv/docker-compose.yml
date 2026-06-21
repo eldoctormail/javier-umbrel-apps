@@ -1,0 +1,17 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: javier-nodecast-tv_web_1
+      APP_PORT: 3000
+
+  web:
+    image: ghcr.io/technomancer702/nodecast-tv:latest
+    # Si esa imagen no trae build arm64, comentá la línea de arriba
+    # y usá esta para compilar nativo en el Pi:
+    # build: https://github.com/technomancer702/nodecast-tv.git#main
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
