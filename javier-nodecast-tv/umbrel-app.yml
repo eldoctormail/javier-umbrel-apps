@@ -1,0 +1,19 @@
+manifestVersion: 1
+id: javier-nodecast-tv
+category: media
+name: NodeCast TV
+version: "2.1.1"
+tagline: "Reproductor IPTV web: Live TV, EPG, Películas y Series"
+description: >-
+  NodeCast TV es una app autoalojada para ver TV en vivo, películas y series
+  desde tu proveedor Xtream Codes o M3U directamente en el navegador.
+developer: technomancer702
+website: https://github.com/technomancer702/nodecast-tv
+repo: https://github.com/technomancer702/nodecast-tv
+support: https://github.com/technomancer702/nodecast-tv/issues
+port: 3000
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: Javier
+submission: https://github.com/technomancer702/nodecast-tv
