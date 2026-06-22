@@ -1,0 +1,65 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: javier-dispatcharr_web_1
+      APP_PORT: 9191
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: ghcr.io/dispatcharr/dispatcharr:latest
+    restart: on-failure
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      - DISPATCHARR_ENV=modular
+      - POSTGRES_HOST=javier-dispatcharr_db_1
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=dispatcharr
+      - POSTGRES_USER=dispatch
+      - POSTGRES_PASSWORD=secret
+      - REDIS_HOST=javier-dispatcharr_redis_1
+      - REDIS_PORT=6379
+      - DISPATCHARR_LOG_LEVEL=info
+
+  celery:
+    image: ghcr.io/dispatcharr/dispatcharr:latest
+    restart: on-failure
+    entrypoint: ["/app/docker/entrypoint.celery.sh"]
+    depends_on:
+      - db
+      - redis
+      - web
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      - DISPATCHARR_ENV=modular
+      - DISPATCHARR_PORT=9191
+      - POSTGRES_HOST=javier-dispatcharr_db_1
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=dispatcharr
+      - POSTGRES_USER=dispatch
+      - POSTGRES_PASSWORD=secret
+      - REDIS_HOST=javier-dispatcharr_redis_1
+      - REDIS_PORT=6379
+      - DISPATCHARR_LOG_LEVEL=info
+      - DJANGO_SETTINGS_MODULE=dispatcharr.settings
+      - PYTHONUNBUFFERED=1
+
+  db:
+    image: postgres:17
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=dispatcharr
+      - POSTGRES_USER=dispatch
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
