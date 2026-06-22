@@ -2,6 +2,7 @@ manifestVersion: 1
 id: javier-dispatcharr
 category: media
 name: Dispatcharr
+icon: https://raw.githubusercontent.com/Dispatcharr/Dispatcharr/main/frontend/src/images/logo.png
 version: "0.27.0"
 tagline: "Gestor de streams IPTV, EPG y VOD"
 description: >-
