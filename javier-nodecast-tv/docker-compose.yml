@@ -3,7 +3,7 @@ services:
     environment:
       APP_HOST: javier-nodecast-tv_web_1
       APP_PORT: 3000
-
+      PROXY_AUTH_ADD: "false"
   web:
     image: ghcr.io/technomancer702/nodecast-tv:latest
     # Si esa imagen no trae build arm64, comentá la línea de arriba
