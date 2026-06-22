@@ -1,0 +1,20 @@
+manifestVersion: 1
+id: javier-dispatcharr
+category: media
+name: Dispatcharr
+version: "0.27.0"
+tagline: "Gestor de streams IPTV, EPG y VOD"
+description: >-
+  Dispatcharr es una plataforma autoalojada para gestionar streams IPTV, EPG
+  y VOD. Combina múltiples fuentes M3U/Xtream Codes, emula tuners HDHomeRun
+  para Plex/Emby/Jellyfin, y permite transcodificar streams con FFmpeg.
+developer: Dispatcharr
+website: https://github.com/Dispatcharr/Dispatcharr
+repo: https://github.com/Dispatcharr/Dispatcharr
+support: https://github.com/Dispatcharr/Dispatcharr/issues
+port: 9191
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: Javier
+submission: https://github.com/Dispatcharr/Dispatcharr
