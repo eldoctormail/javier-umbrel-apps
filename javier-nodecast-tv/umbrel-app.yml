@@ -11,6 +11,7 @@ developer: technomancer702
 website: https://github.com/technomancer702/nodecast-tv
 repo: https://github.com/technomancer702/nodecast-tv
 support: https://github.com/technomancer702/nodecast-tv/issues
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nodecast-tv.png
 port: 3000
 path: ""
 defaultUsername: ""
